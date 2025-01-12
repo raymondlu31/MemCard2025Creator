@@ -1,0 +1,106 @@
+﻿<!-- 
+    MemCard2025
+    MIT License
+    Copyright (c) 2025 Raymond Lou Independent Developer
+    See LICENSE file for full license information.
+-->
+
+<!-- Views/SingleCardView.xaml  -->
+<UserControl x:Class="MemCard2025Creator.Views.SingleCardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MemCard2025Creator.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="600">
+    <StackPanel>
+        <!-- Add Radio button "Basic Category" and "Cusomized Category" -->
+
+        <!-- Under "Basic Category" add a Combobox to select existing category and next category -->
+
+        <!-- Under "Cusomized Category" add a textbox to input category string -->
+
+        <!-- Category Selection -->
+        <GroupBox Header="Card Name" Margin="0,0,0,15">
+            <StackPanel Margin="10">
+                <RadioButton Content="Please select:" 
+                            IsChecked="{Binding IsENBCategory}" 
+                            Margin="0,0,0,10"/>
+
+                <!-- ENB Category Options -->
+                <Grid Margin="20,0,0,10" 
+                      IsEnabled="{Binding IsENBCategory}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Existing or Next Basic Category:" 
+                             Grid.Row="0" Grid.Column="0" 
+                             VerticalAlignment="Center" 
+                             Margin="0,0,10,5"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" 
+                             ItemsSource="{Binding ENBCategories}"
+                             SelectedItem="{Binding SelectedCategory}"
+                             Margin="0,0,0,5"/>
+
+                </Grid>
+
+                <RadioButton Content="New Customized Category:" 
+                            IsChecked="{Binding IsCustomizedCategory}" 
+                            Margin="0,0,0,10"/>
+
+                <!-- Customized Category Input -->
+                <TextBox Text="{Binding CustomizedCategory, UpdateSourceTrigger=PropertyChanged}" 
+                         IsEnabled="{Binding IsCustomizedCategory}"
+                         Margin="20,0,0,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Card Alias -->
+        <TextBlock Text="Card Alias:" FontWeight="Bold" Margin="0,0,0,5"/>
+        <TextBox Text="{Binding CardAlias, UpdateSourceTrigger=PropertyChanged}" 
+                 TextWrapping="Wrap" 
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto" 
+                 Margin="20,0,15,15"/>
+
+        <!-- Card Unique Name -->
+        <Button Content="Refresh Card Unique Name" Command="{Binding RefreshCardCommand}" 
+                Width="200" Height="40" Margin="5"/>
+        <TextBlock Text="Card Unique Name:" FontWeight="Bold" Margin="0,0,0,5"/>
+        <TextBlock Text="{Binding Card_Unic_Name}" 
+                   FontSize="36" FontWeight="Bold" 
+                   Margin="20,0,20,15"/>
+
+
+        <!-- Grid for Buttons -->
+        <Grid Margin="10">
+            <!-- Define 1 rows and 2 columns -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Place buttons in the grid -->
+
+            <Button Content="Edit Card" Command="{Binding EditCardCommand}" 
+                    FontSize="18" FontWeight="Black" Width="200" Height="40" 
+                    Margin="5" Grid.Row="0" Grid.Column="0"/>
+            <Button Content="Cancel" Command="{Binding CancelCardCommand}" Margin="5" Grid.Row="0" Grid.Column="1"/>
+           
+        </Grid>
+
+        <Button Content="Go Home" Command="{Binding GoHomeCommand}" Margin="5"/>
+
+
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,96 @@
+﻿<!-- 
+    MemCard2025
+    MIT License
+    Copyright (c) 2025 Raymond Lou Independent Developer
+    See LICENSE file for full license information.
+-->
+
+<!-- MainWindow.xaml -->
+<Window x:Class="MemCard2025Creator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ViewModels="clr-namespace:MemCard2025Creator.ViewModels"
+        mc:Ignorable="d"
+        Title="MemCard2025Creator" Width="800" Height="800">
+    <Grid>
+        <!-- Define Layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <!-- Top Pane -->
+            <RowDefinition Height="*"/>
+            <!-- Bottom Pane -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <!-- Left Pane -->
+            <ColumnDefinition Width="Auto"/>
+            <!-- Separator -->
+            <ColumnDefinition Width="*"/>
+            <!-- Right Pane -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Top Pane -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" 
+                   Text="MemCard2025Creator" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"/>
+
+        <!-- Left Pane -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+            <!-- Mode Selection Group -->
+            <Button Content="Export MemCard" 
+                    Command="{Binding ExportMemCardCommand}" 
+                    Margin="5"
+                    Height="40"/>
+
+            <Separator Margin="0,15"/>
+            <!-- Card Management Group -->
+            <Button Content="Create a Single Card" 
+                    Command="{Binding SingleCardCommand}" 
+                    Margin="5"
+                    FontSize="16"
+                    Height="35"/>
+            <Button Content="Add a Batch of Cards" 
+                    Command="{Binding BatchCardsCommand}" 
+                    Margin="5"
+                    FontSize="16"
+                    Height="35"/>
+            <Separator Margin="0,15"/>
+            <Button Content="Generate Audio from File" 
+                    Command="{Binding GenerateAudioFromFileCommand}" 
+                    Margin="5" FontSize="12" Height="35"/>
+            <Separator Margin="0,15"/>
+            <Button Content="Delete a Category of Cards" 
+                    Command="{Binding DeleteCategoryCommand}" 
+                    Margin="5"
+                    FontSize="12"
+                    Height="35"/>
+            <Separator Margin="0,15"/>
+            <!-- System Options Group -->
+            <Button Content="Card Viewer" 
+                    Command="{Binding OpenCardViewerCommand}" 
+                    Margin="5"
+                    Height="35"/>
+            <Button Content="Exit" 
+                    Command="{Binding ExitCommand}" 
+                    Margin="5"
+                    Height="35"/>
+
+        </StackPanel>
+
+        <!-- Vertical Separator -->
+        <Rectangle Grid.Row="1" Grid.Column="1"
+                   Width="1"
+                   Fill="Gray"
+                   VerticalAlignment="Stretch"
+                   Margin="0"/>
+
+        <!-- Right Pane -->
+        <ContentControl Grid.Row="1" Grid.Column="2" 
+                       Content="{Binding CurrentView}"/>
+    </Grid>
+</Window>

@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Copyright>Copyright (c) 2024 Raymond Lou</Copyright>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE226393-51D9-4C04-97E5-0F978F07C571}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MemCard2025Creator</RootNamespace>
+    <AssemblyName>MemCard2025Creator</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="InverseBooleanToVisibilityConverter.cs" />
+    <Compile Include="Services\AppInitializer.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Utilities\CardMediaHelper.cs" />
+    <Compile Include="Utilities\ConfigHelper.cs" />
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\MessageHelper.cs" />
+    <Compile Include="ViewModels\File2AudioViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SingleCardEditorViewModel.cs" />
+    <Compile Include="ViewModels\BatchCardViewModel.cs" />
+    <Compile Include="ViewModels\DeleteCategoryViewModel.cs" />
+    <Compile Include="ViewModels\SingleCardViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\File2AudioView.xaml.cs">
+      <DependentUpon>File2AudioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImageShaperWindow.xaml.cs">
+      <DependentUpon>ImageShaperWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SingleCardEditorWindow.xaml.cs">
+      <DependentUpon>SingleCardEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BatchCardView.xaml.cs">
+      <DependentUpon>BatchCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeleteCategoryView.xaml.cs">
+      <DependentUpon>DeleteCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SingleCardView.xaml.cs">
+      <DependentUpon>SingleCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\File2AudioView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ImageShaperWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SingleCardEditorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BatchCardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DeleteCategoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SingleCardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\CardManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="LICENSE" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MemCard-resource\bgm\bgm-001.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemCard-resource\bgm\bgm-002.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemCard-resource\bgm\bgm-003.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemCard-resource\config\card-list.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemCard-resource\config\memcard2025.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemCard-resource\config\BGM-list.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemCard-resource\media\audio\1essential-0001-Drink, I want some drink.mp3" />
+    <Content Include="MemCard-resource\media\audio\1essential-0002-Food, I want some food.mp3" />
+    <Content Include="MemCard-resource\media\audio\1essential-0003-Toilet, I want to go toilet.mp3" />
+    <Content Include="MemCard-resource\media\audio\1essential-0004-Glasses, I want my glasses.mp3" />
+    <Content Include="MemCard-resource\media\audio\1essential-0005-Teeth, I want my teeth.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0001-Susan, my nurse, Susan.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0002-Linda, my nurse, Linda.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0003-Catharine, my nurse, Catharine.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0004-Elizabeth, my carer, Elizabeth.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0005-Amy, my carer, Amy.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0006-Hellen and Vickie, my carers, Hellen and Vickie.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0007-Kathy, my carer, Kathy.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0008-Tina, my carer, Tina.mp3" />
+    <Content Include="MemCard-resource\media\audio\2staff-0009-Victoria, the facility manager, Victoria.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0001-Lucy, My wife, Lucy.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0002-Jackson, My brother, Jackson.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0003-Edward, My son, Edward.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0004-Sophia, Edward%27s wife, Sophia.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0005-Isabella, my daughter, Isabella.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0006-Bruce, Edward%27s son, my grand son, Bruce.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0007-William, Edward%27s son, my grand son, William.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0008-Charlotte, Isabella%27s daughter, my grand daughter, Charlotte.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0009-Lucas, Isabella%27s son, my grand son, Lucas.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0010-James, Jackson%27s son, James.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0011-Olivia, Jackson%27s daughter, Olivia.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0012-Peter, My best friend, Peter.mp3" />
+    <Content Include="MemCard-resource\media\audio\3family-0013-Simon, Peter%27s grand son, Simon.mp3" />
+    <Resource Include="MemCard-resource\media\subtitles\1essential-0001-Drink, I want some drink.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\1essential-0002-Food, I want some food.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\1essential-0003-Toilet, I want to go toilet.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\1essential-0004-Glasses, I want my glasses.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\1essential-0005-Teeth, I want my teeth.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0001-Susan, my nurse, Susan.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0002-Linda, my nurse, Linda.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0003-Catharine, my nurse, Catharine.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0004-Elizabeth, my carer, Elizabeth.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0005-Amy, my carer, Amy.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0006-Hellen and Vickie, my carers, Hellen and Vickie.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0007-Kathy, my carer, Kathy.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0008-Tina, my carer, Tina.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\2staff-0009-Victoria, the facility manager, Victoria.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0001-Lucy, My wife, Lucy.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0002-Jackson, My brother, Jackson.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0003-Edward, My son, Edward.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0004-Sophia, Edward%27s wife, Sophia.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0005-Isabella, my daughter, Isabella.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0006-Bruce, Edward%27s son, my grand son, Bruce.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0007-William, Edward%27s son, my grand son, William.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0008-Charlotte, Isabella%27s daughter, my grand daughter, Charlotte.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0009-Lucas, Isabella%27s son, my grand son, Lucas.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0010-James, Jackson%27s son, James.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0011-Olivia, Jackson%27s daughter, Olivia.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0012-Peter, My best friend, Peter.txt" />
+    <Resource Include="MemCard-resource\media\subtitles\3family-0013-Simon, Peter%27s grand son, Simon.txt" />
+    <Resource Include="MemCard-resource\media\images\1-0001-DisplayInit.JPG" />
+    <Resource Include="MemCard-resource\media\images\1essential-0001-Drink, I want some drink.JPG" />
+    <Resource Include="MemCard-resource\media\images\1essential-0002-Food, I want some food.JPG" />
+    <Resource Include="MemCard-resource\media\images\1essential-0003-Toilet, I want to go toilet.JPG" />
+    <Resource Include="MemCard-resource\media\images\1essential-0004-Glasses, I want my glasses.JPG" />
+    <Resource Include="MemCard-resource\media\images\1essential-0005-Teeth, I want my teeth.JPG" />
+    <Resource Include="MemCard-resource\media\images\2-0001-ChallengeInit.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0001-Susan, my nurse, Susan.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0002-Linda, my nurse, Linda.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0003-Catharine, my nurse, Catharine.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0004-Elizabeth, my carer, Elizabeth.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0005-Amy, my carer, Amy.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0006-Hellen and Vickie, my carers, Hellen and Vickie.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0007-Kathy, my carer, Kathy.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0008-Tina, my carer, Tina.JPG" />
+    <Resource Include="MemCard-resource\media\images\2staff-0009-Victoria, the facility manager, Victoria.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0001-Lucy, My wife, Lucy.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0002-Jackson, My brother, Jackson.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0003-Edward, My son, Edward.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0004-Sophia, Edward%27s wife, Sophia.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0005-Isabella, my daughter, Isabella.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0006-Bruce, Edward%27s son, my grand son, Bruce.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0007-William, Edward%27s son, my grand son, William.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0008-Charlotte, Isabella%27s daughter, my grand daughter, Charlotte.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0009-Lucas, Isabella%27s son, my grand son, Lucas.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0010-James, Jackson%27s son, James.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0011-Olivia, Jackson%27s daughter, Olivia.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0012-Peter, My best friend, Peter.JPG" />
+    <Resource Include="MemCard-resource\media\images\3family-0013-Simon, Peter%27s grand son, Simon.JPG" />
+    <Content Include="MemCard-resource\runtime\.placeholder">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MemCard-backup\.placeholder">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
