@@ -1,0 +1,62 @@
+﻿<!-- 
+    MemCard2025
+    MIT License
+    Copyright (c) 2025 Raymond Lou Independent Developer
+    See LICENSE file for full license information.
+-->
+
+<!-- Views/HomeView.xaml  -->
+<UserControl x:Class="MemCard2025Creator.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MemCard2025Creator.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="600">
+    <Grid Margin="20">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+            <!-- Header -->
+            <TextBlock Text="Welcome to MemCard2025!"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       TextAlignment="Center"
+                       Margin="0,0,0,10"/>
+
+            <!-- Subtitle -->
+            <TextBlock Text="MemCard2025 is your tool for memory training."
+                       FontSize="16"
+                       TextAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <!-- Quick Start Guide -->
+            <TextBlock Text="Quick Start Guide:"
+                       FontSize="18"
+                       FontWeight="SemiBold"
+                       Margin="0,0,0,5"/>
+
+            <StackPanel>
+                <TextBlock Text="• To save a backup of the current MemCard-resource directory, please click `Export MemCard`."
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,5"/>
+                <TextBlock Text="• To add a single card, please click `Create a Single Card`."
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,5"/>
+                <TextBlock Text="• To add multiple cards in a category, please click 'Add a Batch of Cards'."
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,5"/>
+                <TextBlock Text="• To generate reading audio files from a script text file , please click `Generate Audio from File`."
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,5"/>
+                <TextBlock Text="• To delete the cards in a category, please click `Delete a Category of Cards`."
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,5"/>
+                <TextBlock Text="Please refer to the MemCard2025_User_Guide.pdf for details."
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           FontWeight="Bold"
+                           Margin="0,0,0,5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
