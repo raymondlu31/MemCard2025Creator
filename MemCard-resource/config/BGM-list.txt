@@ -1,3 +1,0 @@
-﻿MemCard-resource\bgm\bgm-001.mp3
-MemCard-resource\bgm\bgm-002.mp3
-MemCard-resource\bgm\bgm-003.mp3
